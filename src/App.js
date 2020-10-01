@@ -13,20 +13,13 @@ import "./AppAnimation.css";
 class App extends Component {
 
   componentDidUpdate(prevProps) {
-    const {contacts, notify} = this.props;
-    if (prevProps.contacts !== contacts) {
-      localStorage.setItem("contacts", JSON.stringify(contacts));
-    }
+    const {notify} = this.props;
     if (notify) {
       setTimeout(this.hiddenNotify, 2500);
     }
   }
-  componentDidMount() { // как быть сдесь? как записать исходные данные
-    const contactsLocalStorage = localStorage.getItem("contacts");
-    const {saveContactsFromLS} = this.props;
-    if (contactsLocalStorage) {
-      saveContactsFromLS(JSON.parse(contactsLocalStorage))
-    }
+  componentDidMount() {
+
   }
 
   hiddenNotify = () => {
@@ -70,7 +63,6 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = {
   onHiddenNotify: contactsActions.toggleNotify,
-  saveContactsFromLS: contactsActions.getContactsFromLocalStorage,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

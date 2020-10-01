@@ -17,8 +17,6 @@ const changeFilter = createAction("contact/changeFilter");
 
 const toggleNotify = createAction("contact/toggleNotify");
 
-const getContactsFromLocalStorage = createAction("contact/getContactsFromLocalStorage");
-
 export default {
-  addContact, deleteContact, changeFilter, toggleNotify, getContactsFromLocalStorage
+  addContact, deleteContact, changeFilter, toggleNotify
 }
