@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
-import contactsActions from "../../redux/contacts/contactsActions";
+import contactsOperations from "../../redux/contacts/contactsOperations";
 import styles from "./Contact.module.scss";
 
 
@@ -29,7 +29,7 @@ class Contact extends Component {
 }
 
 const mapDispatchToProps = {
-  onDeleteContact: contactsActions.deleteContact,
+  onDeleteContact: contactsOperations.deleteContact,
 }
 
 export default connect(null, mapDispatchToProps)(Contact);

@@ -8,7 +8,9 @@ const getAllContactsRequest = createAction("contact/getAllRequest");
 const getAllContactsSuccess = createAction("contact/getAllSuccess");
 const getAllContactsError = createAction("contact/getAllError");
 
-const deleteContact = createAction("contact/delete");
+const deleteContactRequest = createAction("contact/deleteRequest");
+const deleteContactSuccess = createAction("contact/deleteSuccess");
+const deleteContactError = createAction("contact/deleteError");
 
 const changeFilter = createAction("contact/changeFilter");
 
@@ -21,7 +23,9 @@ export default {
   getAllContactsRequest,
   getAllContactsSuccess,
   getAllContactsError,
-  deleteContact,
+  deleteContactRequest,
+  deleteContactSuccess,
+  deleteContactError,
   changeFilter,
   toggleNotify
 }
