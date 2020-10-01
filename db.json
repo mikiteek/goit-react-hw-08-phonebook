@@ -1,11 +1,6 @@
 {
   "contacts": [
     {
-      "name": "Sergey Mykyteiek",
-      "number": "077-8963521",
-      "id": 1
-    },
-    {
       "name": "Anton Chigur",
       "number": "077-8963521",
       "id": 2
@@ -14,6 +9,11 @@
       "name": "Andrey Ivanov",
       "number": "077-8963521",
       "id": 3
+    },
+    {
+      "name": "Sergey Mykyteiek",
+      "number": "077-8963521",
+      "id": 4
     }
   ]
 }

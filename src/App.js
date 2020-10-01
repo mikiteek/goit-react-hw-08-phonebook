@@ -3,6 +3,7 @@ import {TransitionGroup, CSSTransition} from "react-transition-group";
 import {connect} from "react-redux";
 import contactsActions from "./redux/contacts/contactsActions";
 import contactsOperations from "./redux/contacts/contactsOperations";
+import contactsSelectors from "./redux/contacts/contactsSelectors";
 import Layout from "./components/Layout/Layout";
 import ContactForm from "./components/ContactForm/ContactForm";
 import SectionContacts from "./components/SectionContacts/SectionContacts";
@@ -53,14 +54,11 @@ class App extends Component {
 
 }
 
-const mapStateToProps = state => {
-  const {items, filter, notify} = state.contacts;
-  return {
-    visibleContacts: items.filter(({name}) => name.toLowerCase().includes(filter.toLowerCase())),
-    contacts: state.contacts.items,
-    notify,
-  }
-}
+const mapStateToProps = state => ({
+  visibleContacts: contactsSelectors.getVisibleContacts(state),
+  contacts: contactsSelectors.getContacts(state),
+  notify: contactsSelectors.getNotify(state),
+})
 
 const mapDispatchToProps = {
   onHiddenNotify: contactsActions.toggleNotify,
