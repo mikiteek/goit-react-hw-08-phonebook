@@ -13,6 +13,16 @@ const addContact = ({name, number}) => dispatch => {
     .catch(error => dispatch(contactsActions.addContactError(error)));
 };
 
+const getAllContacts = contacts => dispatch => {
+  dispatch(contactsActions.getAllContactsRequest());
+
+  axios
+    .get("/contacts", contacts)
+    .then(({data}) => dispatch(contactsActions.getAllContactsSuccess(data)))
+    .catch(error => dispatch(contactsActions.addContactError(error)));
+}
+
 export default {
   addContact,
+  getAllContacts,
 }
