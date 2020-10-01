@@ -13,16 +13,26 @@ const addContact = ({name, number}) => dispatch => {
     .catch(error => dispatch(contactsActions.addContactError(error)));
 };
 
-const getAllContacts = contacts => dispatch => {
+const getAllContacts = () => dispatch => {
   dispatch(contactsActions.getAllContactsRequest());
 
   axios
-    .get("/contacts", contacts)
+    .get("/contacts")
     .then(({data}) => dispatch(contactsActions.getAllContactsSuccess(data)))
     .catch(error => dispatch(contactsActions.addContactError(error)));
+}
+
+const deleteContact = id => dispatch => {
+  dispatch(contactsActions.deleteContactRequest());
+
+  axios
+    .delete(`/contacts/${id}`)
+    .then(() => dispatch(contactsActions.deleteContactSuccess(id)))
+    .catch(error => dispatch(contactsActions.deleteContactError(error)));
 }
 
 export default {
   addContact,
   getAllContacts,
+  deleteContact,
 }
