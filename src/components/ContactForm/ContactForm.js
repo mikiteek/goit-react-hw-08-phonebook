@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import {CSSTransition} from "react-transition-group";
 import contactsActions from "../../redux/contacts/contactsActions";
 import contactsOperations from "../../redux/contacts/contactsOperations";
+import contactsSelectors from "../../redux/contacts/contactsSelectors";
 import styles from "./ContactForm.module.scss";
 import "./ContactFormAnimation.css";
 
@@ -55,7 +56,7 @@ class ContactForm extends Component {
 }
 
 const mapStateToProps = state => ({
-  contacts: state.contacts.items,
+  contacts: contactsSelectors.getContacts(state),
 })
 
 const mapDispatchToProps = {
