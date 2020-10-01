@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import {TransitionGroup, CSSTransition} from "react-transition-group";
 import {connect} from "react-redux";
-import contactsActions from "./redux/contacts/contactsActions"
+import contactsActions from "./redux/contacts/contactsActions";
+import contactsOperations from "./redux/contacts/contactsOperations";
 import Layout from "./components/Layout/Layout";
 import ContactForm from "./components/ContactForm/ContactForm";
 import SectionContacts from "./components/SectionContacts/SectionContacts";
@@ -19,7 +20,7 @@ class App extends Component {
     }
   }
   componentDidMount() {
-
+    this.props.onGetAllContacts();
   }
 
   hiddenNotify = () => {
@@ -63,6 +64,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = {
   onHiddenNotify: contactsActions.toggleNotify,
+  onGetAllContacts: contactsOperations.getAllContacts,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
