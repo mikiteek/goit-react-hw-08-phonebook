@@ -3,6 +3,7 @@ import {connect} from "react-redux";
 import PropTypes from "prop-types";
 import {CSSTransition} from "react-transition-group";
 import contactsActions from "../../redux/contacts/contactsActions";
+import contactsOperations from "../../redux/contacts/contactsOperations";
 import styles from "./ContactForm.module.scss";
 import "./ContactFormAnimation.css";
 
@@ -58,7 +59,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = {
-  onSubmit: contactsActions.addContact,
+  onSubmit: contactsOperations.addContact,
   onShowNotify: contactsActions.toggleNotify
 }
 
