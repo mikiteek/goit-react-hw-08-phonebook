@@ -10,7 +10,7 @@ class SectionContacts extends Component {
   render() {
     const {title, children} = this.props;
     return (
-      <section>
+      <section className="container">
         <h2 className={styles.title}>{title}</h2>
         {children}
       </section>

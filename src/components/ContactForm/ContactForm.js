@@ -39,17 +39,19 @@ class ContactForm extends Component {
     const inputStyles = [styles.formElement, styles.formInput].join(" ");
     return (
       <section className={styles.sectionContacts}>
-        <CSSTransition in={true} appear={true} timeout={500} classNames="ContactFormTitle" unmountOnExit>
-          <h2 className={styles.title}>Phonebook</h2>
-        </CSSTransition>
-        <form className={styles.formContacts} onSubmit={this.handleSubmit}>
-          <label className={styles.formElement} htmlFor="name">Name</label>
-          <input className={inputStyles} type="text" name="name" onChange={this.handleChange}/>
-          <label className={styles.formElement} htmlFor="number">Number</label>
-          <input className={inputStyles} type="text" name="number" onChange={this.handleChange}/>
-          <br/>
-          <button className={styles.btn} type="submit">Add contact</button>
-        </form>
+        <div className="container">
+          <CSSTransition in={true} appear={true} timeout={500} classNames="ContactFormTitle" unmountOnExit>
+            <h2 className={styles.title}>Phonebook</h2>
+          </CSSTransition>
+          <form className={styles.formContacts} onSubmit={this.handleSubmit}>
+            <label className={styles.formElement} htmlFor="name">Name</label>
+            <input className={inputStyles} type="text" name="name" onChange={this.handleChange}/>
+            <label className={styles.formElement} htmlFor="number">Number</label>
+            <input className={inputStyles} type="text" name="number" onChange={this.handleChange}/>
+            <br/>
+            <button className={styles.btn} type="submit">Add contact</button>
+          </form>
+        </div>
       </section>
     );
   }
