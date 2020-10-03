@@ -10,6 +10,7 @@ import SectionContacts from "./components/SectionContacts/SectionContacts";
 import Contact from "./components/Contact/Contact";
 import Filter from "./components/Filter/Filter";
 import ContactNotifyExist from "./components/ContactNotifyExist/ContactNotifyExist";
+import Navigation from "./components/Navigation/Navigation";
 import "./AppAnimation.css";
 
 class App extends Component {
@@ -32,6 +33,7 @@ class App extends Component {
     const {visibleContacts, contacts, notify} = this.props;
     return (
       <Layout>
+        <Navigation/>
         <CSSTransition timeout={250} in={notify} classNames="ContactNotify" unmountOnExit>
           <ContactNotifyExist/>
         </CSSTransition>
