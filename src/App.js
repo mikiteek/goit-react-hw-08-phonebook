@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {TransitionGroup, CSSTransition} from "react-transition-group";
 import {connect} from "react-redux";
+import {Route, Switch} from "react-router-dom";
+import RegisterView from "./views/RegisterView/RegisterView";
 import contactsActions from "./redux/contacts/contactsActions";
 import contactsOperations from "./redux/contacts/contactsOperations";
 import contactsSelectors from "./redux/contacts/contactsSelectors";
@@ -37,19 +39,22 @@ class App extends Component {
         <CSSTransition timeout={250} in={notify} classNames="ContactNotify" unmountOnExit>
           <ContactNotifyExist/>
         </CSSTransition>
-        <ContactForm/>
-        <SectionContacts title={"Contacts"}>
-          <CSSTransition timeout={250} in={contacts.length > 1} classNames="FilterAnimation" unmountOnExit>
-            <Filter/>
-          </CSSTransition>
-          <TransitionGroup component="ul" in={(visibleContacts.length > 0).toString()}>
-            {visibleContacts.map(({name, number, id}) => (
-              <CSSTransition key={id} timeout={250} classNames="ContactsItem">
-                <Contact name={name} number={number} id={id}/>
-              </CSSTransition>
-            ))}
-          </TransitionGroup>
-        </SectionContacts>
+        <Switch>
+          <Route path="/register" exact component={RegisterView}></Route>
+        </Switch>
+        {/*<ContactForm/>*/}
+        {/*<SectionContacts title={"Contacts"}>*/}
+        {/*  <CSSTransition timeout={250} in={contacts.length > 1} classNames="FilterAnimation" unmountOnExit>*/}
+        {/*    <Filter/>*/}
+        {/*  </CSSTransition>*/}
+        {/*  <TransitionGroup component="ul" in={(visibleContacts.length > 0).toString()}>*/}
+        {/*    {visibleContacts.map(({name, number, id}) => (*/}
+        {/*      <CSSTransition key={id} timeout={250} classNames="ContactsItem">*/}
+        {/*        <Contact name={name} number={number} id={id}/>*/}
+        {/*      </CSSTransition>*/}
+        {/*    ))}*/}
+        {/*  </TransitionGroup>*/}
+        {/*</SectionContacts>*/}
       </Layout>
     );
   }
