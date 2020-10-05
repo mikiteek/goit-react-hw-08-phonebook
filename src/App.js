@@ -3,6 +3,7 @@ import {TransitionGroup, CSSTransition} from "react-transition-group";
 import {connect} from "react-redux";
 import {Route, Switch} from "react-router-dom";
 import RegisterView from "./views/RegisterView/RegisterView";
+import LoginView from "./views/LoginView/LoginView";
 import contactsActions from "./redux/contacts/contactsActions";
 import contactsOperations from "./redux/contacts/contactsOperations";
 import contactsSelectors from "./redux/contacts/contactsSelectors";
@@ -23,9 +24,9 @@ class App extends Component {
       setTimeout(this.hiddenNotify, 2500);
     }
   }
-  componentDidMount() {
-    this.props.onGetAllContacts();
-  }
+  // componentDidMount() {
+  //   this.props.onGetAllContacts();
+  // }
 
   hiddenNotify = () => {
     this.props.onHiddenNotify();
@@ -41,6 +42,7 @@ class App extends Component {
         </CSSTransition>
         <Switch>
           <Route path="/register" exact component={RegisterView}></Route>
+          <Route path="/login" exact component={LoginView}></Route>
         </Switch>
         {/*<ContactForm/>*/}
         {/*<SectionContacts title={"Contacts"}>*/}
