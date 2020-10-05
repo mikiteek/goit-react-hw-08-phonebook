@@ -1,0 +1,18 @@
+.userMenuBlock {
+  display: flex;
+  justify-content: space-between;
+}
+.email {
+  margin-right: 10px;
+  font-style: italic;
+}
+
+.email, .btn {
+  font-family: "Montserrat", sans-serif;
+}
+
+.btn {
+  padding-right: 5px;
+  padding-left: 5px;
+  cursor: pointer;
+}

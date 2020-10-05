@@ -1,9 +1,13 @@
 import React, {Component} from "react";
 import {NavLink} from "react-router-dom";
+import {connect} from "react-redux"
+import authSelectors from "../../redux/auth/authSelectors";
+import UserMenu from "../UserMenu/UserMenu";
 import styles from "./Navigation.module.scss";
 
 class Navigation extends Component {
   render() {
+    const {isAuthenticated} = this.props;
     return (
       <div className={styles.headerBlock}>
         <header className={styles.header}>
@@ -21,6 +25,11 @@ class Navigation extends Component {
               <li className={styles.navListItem}>
                 <NavLink to={"/contacts"} className={styles.navLink} activeClassName={styles.navLinkActive}>Contacts</NavLink>
               </li>
+              {
+                isAuthenticated && <li className={styles.navListItem}>
+                  <UserMenu/>
+                </li>
+              }
             </ul>
           </nav>
         </header>
@@ -29,4 +38,8 @@ class Navigation extends Component {
   }
 }
 
-export default Navigation;
+const mapStateToProps = state => ({
+  isAuthenticated: authSelectors.isAuthenticated(state),
+})
+
+export default connect(mapStateToProps)(Navigation);
