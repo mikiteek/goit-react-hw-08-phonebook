@@ -7,6 +7,7 @@ import LoginView from "./views/LoginView/LoginView";
 import contactsActions from "./redux/contacts/contactsActions";
 import contactsOperations from "./redux/contacts/contactsOperations";
 import contactsSelectors from "./redux/contacts/contactsSelectors";
+import authSelectors from "./redux/auth/authSelectors";
 import Layout from "./components/Layout/Layout";
 import ContactForm from "./components/ContactForm/ContactForm";
 import SectionContacts from "./components/SectionContacts/SectionContacts";
