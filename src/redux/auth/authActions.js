@@ -8,6 +8,10 @@ const loginRequest = createAction("auth/loginRequest");
 const loginSuccess = createAction("auth/loginSuccess");
 const loginError = createAction("auth/loginError");
 
+const logoutRequest = createAction("auth/logoutRequest");
+const logoutSuccess = createAction("auth/logoutSuccess");
+const logoutError = createAction("auth/logoutError");
+
 
 export default {
   registerRequest,
@@ -16,4 +20,7 @@ export default {
   loginRequest,
   loginSuccess,
   loginError,
+  logoutRequest,
+  logoutSuccess,
+  logoutError,
 }
