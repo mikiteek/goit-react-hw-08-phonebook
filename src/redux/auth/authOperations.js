@@ -16,7 +16,7 @@ const register = credentials => dispatch => {
   dispatch(authActions.registerRequest());
 
   axios
-    .post("users/signup", credentials)
+    .post("/users/signup", credentials)
     .then(({data}) => {
       console.log(data)
       token.set(data.token)
@@ -25,6 +25,20 @@ const register = credentials => dispatch => {
     .catch(error => dispatch(authActions.registerError(error)));
 }
 
+const login = credentials => dispatch => {
+  dispatch(authActions.loginRequest());
+
+  axios
+    .post("/users/login", credentials)
+    .then(({data}) => {
+      console.log(data);
+      token.set(data.token);
+      dispatch(authActions.loginSuccess(data));
+    })
+    .catch(error => dispatch(authActions.loginError(error)));
+}
+
 export default {
   register,
+  login,
 }
