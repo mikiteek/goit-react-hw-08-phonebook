@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
-import {Route, Switch} from "react-router-dom";
-import RegisterView from "./views/RegisterView/RegisterView";
-import LoginView from "./views/LoginView/LoginView";
+import {Switch} from "react-router-dom";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
+import PublicRoute from "./components/PublicRoute/PublicRoute";
 import authOperations from "./redux/auth/authOperations";
 import Layout from "./components/Layout/Layout";
 import Navigation from "./components/Navigation/Navigation";
-import ContactsView from "./views/ContactsView/ContactsView";
+import routes from "./routes";
 
 class App extends Component {
   componentDidMount() {
@@ -14,14 +14,15 @@ class App extends Component {
   }
 
   render() {
-
     return (
       <Layout>
         <Navigation/>
         <Switch>
-          <Route path="/register" exact component={RegisterView}></Route>
-          <Route path="/login" exact component={LoginView}></Route>
-          <Route path="/contacts" exact component={ContactsView}></Route>
+          {routes.map(route => {
+            return route.private ?
+              <PrivateRoute key={route.label} {...route}/> :
+              <PublicRoute key={route.label} {...route}/>
+          })}
         </Switch>
       </Layout>
     );
