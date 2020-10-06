@@ -8,6 +8,7 @@ import contactsActions from "./redux/contacts/contactsActions";
 import contactsOperations from "./redux/contacts/contactsOperations";
 import contactsSelectors from "./redux/contacts/contactsSelectors";
 import authSelectors from "./redux/auth/authSelectors";
+import authOperations from "./redux/auth/authOperations";
 import Layout from "./components/Layout/Layout";
 import ContactForm from "./components/ContactForm/ContactForm";
 import SectionContacts from "./components/SectionContacts/SectionContacts";
@@ -25,9 +26,9 @@ class App extends Component {
       setTimeout(this.hiddenNotify, 2500);
     }
   }
-  // componentDidMount() {
-  //   this.props.onGetAllContacts();
-  // }
+  componentDidMount() {
+    this.props.onGetCurrentUser();
+  }
 
   hiddenNotify = () => {
     this.props.onHiddenNotify();
@@ -73,6 +74,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = {
   onHiddenNotify: contactsActions.toggleNotify,
   onGetAllContacts: contactsOperations.getAllContacts,
+  onGetCurrentUser: authOperations.getCurrentUser,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
