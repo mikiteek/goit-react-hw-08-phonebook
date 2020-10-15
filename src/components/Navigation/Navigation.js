@@ -3,7 +3,6 @@ import {NavLink} from "react-router-dom";
 import {connect} from "react-redux"
 import authSelectors from "../../redux/auth/authSelectors";
 import UserMenu from "../UserMenu/UserMenu";
-import routes from "../../routes";
 import styles from "./Navigation.module.scss";
 
 class Navigation extends Component {

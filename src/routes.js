@@ -1,16 +1,16 @@
-// import {lazy} from "react"
-import HomeView from "./views/HomeView/HomeView";
-import RegisterView from "./views/RegisterView/RegisterView";
-import LoginView from "./views/LoginView/LoginView";
-import ContactsView from "./views/ContactsView/ContactsView";
+import {lazy} from "react";
+
+const AsyncHomePage = lazy(() => import("./views/HomeView/HomeView" /* webpackChunkName: "home-page" */));
+const AsyncRegisterView = lazy(() => import("./views/RegisterView/RegisterView" /* webpackChunkName: "register-page" */));
+const AsyncLoginView = lazy(() => import("./views/LoginView/LoginView" /* webpackChunkName: "login-page" */));
+const AsyncContactsView = lazy(() => import("./views/ContactsView/ContactsView" /* webpackChunkName: "contacts-page" */));
 
 export default [
   {
     path: "/",
     label: "Home",
     exact: true,
-    // component: lazy(() => import("./views/HomeView/HomeView")),
-    component: HomeView,
+    component: AsyncHomePage,
     private: false,
     restricted: false,
   },
@@ -18,8 +18,7 @@ export default [
     path: "/register",
     label: "Register",
     exact: true,
-    // component: lazy(() => import("./views/RegisterView/RegisterView")),
-    component: RegisterView,
+    component: AsyncRegisterView,
     private: false,
     restricted: true,
   },
@@ -27,8 +26,7 @@ export default [
     path: "/login",
     label: "Login",
     exact: true,
-    // component: lazy(() => import("./views/LoginView/LoginView")),
-    component: LoginView,
+    component: AsyncLoginView,
     private: false,
     restricted: true,
   },
@@ -36,8 +34,7 @@ export default [
     path: "/contacts",
     label: "Contacts",
     exact: true,
-    // component: lazy(() => import("./views/ContactsView/ContactsView")),
-    component: ContactsView,
+    component: AsyncContactsView,
     private: true,
     restricted: false,
   },
