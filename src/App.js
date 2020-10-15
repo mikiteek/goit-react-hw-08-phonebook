@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, Suspense} from 'react';
 import {connect} from "react-redux";
 import {Switch} from "react-router-dom";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
@@ -17,13 +17,15 @@ class App extends Component {
     return (
       <Layout>
         <Navigation/>
-        <Switch>
-          {routes.map(route => {
-            return route.private ?
-              <PrivateRoute key={route.label} {...route}/> :
-              <PublicRoute key={route.label} {...route}/>
-          })}
-        </Switch>
+        <Suspense fallback={<h2>Loading</h2>}>
+          <Switch>
+            {routes.map(route => {
+              return route.private ?
+                <PrivateRoute key={route.label} {...route}/> :
+                <PublicRoute key={route.label} {...route}/>
+            })}
+          </Switch>
+        </Suspense>
       </Layout>
     );
   }
