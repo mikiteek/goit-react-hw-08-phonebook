@@ -1,6 +1,7 @@
 import React, {Component, Suspense} from 'react';
 import {connect} from "react-redux";
 import {Switch} from "react-router-dom";
+import PropTypes from "prop-types";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import PublicRoute from "./components/PublicRoute/PublicRoute";
 import authOperations from "./redux/auth/authOperations";
@@ -9,6 +10,9 @@ import Navigation from "./components/Navigation/Navigation";
 import routes from "./routes";
 
 class App extends Component {
+  static propTypes = {
+    onGetCurrentUser: PropTypes.func,
+  }
   componentDidMount() {
     this.props.onGetCurrentUser();
   }

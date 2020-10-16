@@ -1,10 +1,20 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
+import PropTypes from "prop-types";
 import authSelectors from "../../redux/auth/authSelectors";
 import authOperations from "../../redux/auth/authOperations";
 import styles from "./UserMenu.module.scss";
 
+
+
 class UserMenu extends Component {
+  static propTypes = {
+    user: PropTypes.exact({
+      name: PropTypes.string,
+      email: PropTypes.string,
+    }),
+    onLogout: PropTypes.func,
+  }
   render() {
     const {user, onLogout} = this.props;
     return (

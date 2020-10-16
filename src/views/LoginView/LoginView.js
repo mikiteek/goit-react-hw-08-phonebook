@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
+import PropTypes from "prop-types";
 import authOperations from "../../redux/auth/authOperations";
 import styles from "./LoginView.module.scss";
 
@@ -7,6 +8,9 @@ class LoginView extends Component {
   state = {
     email: "",
     password: "",
+  }
+  static propTypes = {
+    onLogin: PropTypes.func,
   }
 
   handleChange = event => {

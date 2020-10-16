@@ -16,6 +16,13 @@ class ContactForm extends Component {
   }
   static propTypes = {
     onSubmit: PropTypes.func.isRequired,
+    onShowNotify: PropTypes.func.isRequired,
+    contacts: PropTypes.arrayOf(
+      PropTypes.exact({
+        name: PropTypes.string,
+        number: PropTypes.string,
+        id: PropTypes.string.isRequired,
+    }))
   }
   handleSubmit = event => {
     event.preventDefault();

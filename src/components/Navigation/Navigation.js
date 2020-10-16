@@ -1,11 +1,16 @@
 import React, {Component} from "react";
 import {NavLink} from "react-router-dom";
 import {connect} from "react-redux"
+import PropTypes from "prop-types";
 import authSelectors from "../../redux/auth/authSelectors";
 import UserMenu from "../UserMenu/UserMenu";
 import styles from "./Navigation.module.scss";
 
 class Navigation extends Component {
+  static propTypes = {
+    isAuthenticated: PropTypes.string,
+  }
+
   render() {
     const {isAuthenticated} = this.props;
     return (

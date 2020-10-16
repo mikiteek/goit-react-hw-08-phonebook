@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import {CSSTransition, TransitionGroup} from "react-transition-group";
 import {connect} from "react-redux";
+import PropTypes from "prop-types";
 import ContactForm from "../../components/ContactForm/ContactForm";
 import SectionContacts from "../../components/SectionContacts/SectionContacts";
 import Filter from "../../components/Filter/Filter";
@@ -13,6 +14,22 @@ import "./ContactsAnimation.css";
 import authSelectors from "../../redux/auth/authSelectors";
 
 class ContactsView extends Component {
+  static propTypes = {
+    visibleContacts: PropTypes.arrayOf(PropTypes.exact({
+      name: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
+      id: PropTypes.string.isRequired,
+    })),
+    contacts: PropTypes.arrayOf(PropTypes.exact({
+      name: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
+      id: PropTypes.string.isRequired,
+    })),
+    notify: PropTypes.bool,
+    isAuthenticated: PropTypes.string,
+    onHiddenNotify: PropTypes.func,
+    onGetAllContacts: PropTypes.func,
+  }
 
   componentDidUpdate(prevProps) {
     const {notify} = this.props;
