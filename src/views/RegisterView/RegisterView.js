@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
+import PropTypes from "prop-types";
 import authOperations from "../../redux/auth/authOperations";
 import styles from "./RegisterView.module.scss";
 
@@ -9,6 +10,9 @@ class RegisterView extends Component {
     name: "",
     email: "",
     password: ""
+  }
+  static propTypes = {
+    onRegister: PropTypes.func,
   }
 
   handleChange = event => {

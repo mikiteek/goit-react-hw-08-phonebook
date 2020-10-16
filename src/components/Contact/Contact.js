@@ -9,7 +9,8 @@ class Contact extends Component {
   static propTypes = {
     name: PropTypes.string.isRequired,
     number: PropTypes.string.isRequired,
-    id: PropTypes.string.isRequired
+    id: PropTypes.string.isRequired,
+    onDeleteContact: PropTypes.func.isRequired,
   }
 
   handleDeleteContact = () => {
